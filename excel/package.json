@@ -1,0 +1,13 @@
+{
+  "name": "internship-excel-sync",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "sync": "node src/sync.mjs",
+    "test": "node --test"
+  }
+}

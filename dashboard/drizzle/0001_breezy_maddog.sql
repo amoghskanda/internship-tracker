@@ -1,0 +1,1 @@
+ALTER TABLE `applications` ADD `manual_priority_override` text DEFAULT '' NOT NULL;

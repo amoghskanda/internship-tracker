@@ -1,0 +1,6 @@
+node_modules/
+*.xlsx
+jobs*.json
+merged*.json
+*.bak-*
+*.tmp-*

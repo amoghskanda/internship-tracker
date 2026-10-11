@@ -1,0 +1,62 @@
+{
+  "timezone": "America/Los_Angeles",
+  "daily_run_time": "07:00",
+  "reminder_interval_hours": 12,
+  "recipient_email": "your-email@example.com",
+  "data_dir": "data",
+  "state_db_path": "data/scheduler.sqlite3",
+  "merged_json_path": "data/merged_jobs.json",
+  "workbook_path": "data/Summer-2027-Internships.xlsx",
+  "dashboard_dir": "../dashboard/dist/client",
+  "collector_command": [
+    "python3",
+    "-m",
+    "internship_collector",
+    "--output",
+    "data/collected.json"
+  ],
+  "ranking_command": [
+    "python3",
+    "scheduler/ranker.py",
+    "--jobs",
+    "data/collected.json",
+    "--resume-profile",
+    "private/resume_profile.json",
+    "--in-place"
+  ],
+  "excel_sync_command": [
+    "node",
+    "../excel/src/sync.mjs",
+    "--jobs",
+    "data/collected.json",
+    "--output",
+    "data/Summer-2027-Internships.xlsx",
+    "--json-output",
+    "data/merged_jobs.json"
+  ],
+  "excel_read_command": [
+    "node",
+    "../excel/src/sync.mjs",
+    "--export-json",
+    "--input",
+    "data/Summer-2027-Internships.xlsx",
+    "--json-output",
+    "data/merged_jobs.json"
+  ],
+  "excel_update_command": [],
+  "command_timeout_seconds": 900,
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8765
+  },
+  "pending_statuses": ["Not applied"],
+  "smtp": {
+    "host_env": "SMTP_HOST",
+    "port_env": "SMTP_PORT",
+    "username_env": "SMTP_USERNAME",
+    "password_env": "SMTP_PASSWORD",
+    "from_env": "SMTP_FROM",
+    "ssl": true,
+    "starttls": true
+  }
+}

@@ -1,0 +1,36 @@
+# Local credentials and machine-specific settings
+.env
+.env.*
+**/.env
+**/.env.*
+**/config.json
+**/private/
+**/.openai/
+
+# Job feeds, application state, browser imports, and local databases
+**/data/
+**/*.sqlite
+**/*.sqlite3
+**/*.sqlite3-*
+**/*.lock
+dashboard/public/tracker-data.json
+dashboard/public/browser-jobs.json
+
+# Generated workbooks and backups
+**/*.xlsx.bak-*
+runner/data/*.xlsx
+
+# Build and editor output
+**/node_modules/
+**/.next/
+**/.vinext/
+**/.wrangler/
+**/dist/
+**/out/
+**/outputs/
+**/coverage/
+**/__pycache__/
+*.py[cod]
+*.tsbuildinfo
+*.inspect.ndjson
+.DS_Store

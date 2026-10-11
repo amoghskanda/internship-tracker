@@ -1,0 +1,10 @@
+.env
+.env.*
+config.json
+data/*.sqlite3
+data/*.sqlite3-*
+data/*.lock
+data/logs/
+data/*.xlsx
+data/*.json
+private/

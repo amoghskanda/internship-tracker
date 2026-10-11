@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.internship-runner.scheduler</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__PYTHON_BIN__</string>
+    <string>-m</string>
+    <string>scheduler</string>
+    <string>--config</string>
+    <string>__CONFIG_PATH__</string>
+    <string>tick</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>__REPO_DIR__</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>60</integer>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>StandardOutPath</key>
+  <string>__LOG_DIR__/scheduler.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>__LOG_DIR__/scheduler.stderr.log</string>
+</dict>
+</plist>
