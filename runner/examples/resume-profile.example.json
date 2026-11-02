@@ -9,19 +9,46 @@
     {
       "name": "software engineering",
       "version": "example-v1",
-      "domains": ["software engineering"],
-      "target_roles": ["Software Engineer Intern", "Software Developer Intern"],
-      "skills": ["Python", "SQL", "Git", "REST APIs"],
-      "projects": ["Example API project with tests and database integration"],
-      "experience": ["Example software internship building internal tools"]
+      "domains": [
+        "software engineering"
+      ],
+      "target_roles": [
+        "Software Engineer Intern",
+        "Software Developer Intern"
+      ],
+      "skills": [
+        "Python",
+        "SQL",
+        "Git",
+        "REST APIs"
+      ],
+      "projects": [
+        "Built REST APIs in Python with SQL database integration, tests, and Git code reviews."
+      ],
+      "experience": [
+        "Software engineering internship building internal tools with Python, SQL, Git, and REST APIs."
+      ]
     },
     {
       "name": "machine learning",
       "version": "example-v1",
-      "domains": ["machine learning", "data science"],
-      "target_roles": ["Machine Learning Intern", "Applied AI Intern"],
-      "skills": ["Python", "PyTorch", "scikit-learn", "model evaluation"],
-      "projects": ["Example model training and evaluation project"]
+      "domains": [
+        "machine learning",
+        "data science"
+      ],
+      "target_roles": [
+        "Machine Learning Intern",
+        "Applied AI Intern"
+      ],
+      "skills": [
+        "Python",
+        "PyTorch",
+        "scikit-learn",
+        "model evaluation"
+      ],
+      "projects": [
+        "Model training and model evaluation with Python, PyTorch, and scikit-learn."
+      ]
     }
   ]
 }

@@ -8,7 +8,9 @@ export const applications = sqliteTable('applications', {
   oaDate: text('oa_date').notNull().default(''),
   interviewDate: text('interview_date').notNull().default(''),
   notes: text('notes').notNull().default(''),
-  manualPriorityOverride: text('manual_priority_override').notNull().default(''),
+  manualPriorityOverride: text('manual_priority_override')
+    .notNull()
+    .default(''),
   removed: integer('removed', { mode: 'boolean' }).notNull().default(false),
   updatedAt: text('updated_at').notNull(),
 });

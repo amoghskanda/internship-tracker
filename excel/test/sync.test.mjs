@@ -242,6 +242,28 @@ test("application tracking writes priority, OA, interview, deadline, notes, and 
   }
 });
 
+test("Interested does not create an application date and clears a previous one", async () => {
+  const directory = await tempDir();
+  try {
+    const jobsPath = path.join(directory, "jobs.json");
+    const outputPath = path.join(directory, "internships.xlsx");
+    const jsonPath = path.join(directory, "merged.json");
+    await fs.writeFile(jobsPath, JSON.stringify([{ id: "job-1", company: "Example Co", role: "Intern", url: "https://example.test/job-1" }]));
+    await syncJobs({ jobsPath, outputPath, jsonPath });
+    await updateApplication({ inputPath: outputPath, jsonPath, id: "job-1", status: "Interested" });
+    let feed = JSON.parse(await fs.readFile(jsonPath, "utf8"));
+    assert.equal(feed.jobs[0].applied_date, "");
+    await updateApplication({ inputPath: outputPath, jsonPath, id: "job-1", status: "Applied", appliedDate: "2026-09-02" });
+    feed = JSON.parse(await fs.readFile(jsonPath, "utf8"));
+    assert.equal(feed.jobs[0].applied_date, "2026-09-02");
+    await updateApplication({ inputPath: outputPath, jsonPath, id: "job-1", status: "Interested" });
+    feed = JSON.parse(await fs.readFile(jsonPath, "utf8"));
+    assert.equal(feed.jobs[0].applied_date, "");
+  } finally {
+    await fs.rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("syncJobs creates a formatted, filterable workbook and JSON sidecar", async () => {
   const directory = await tempDir();
   try {

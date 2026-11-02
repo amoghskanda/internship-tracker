@@ -1125,9 +1125,9 @@ export async function updateApplication({ inputPath, jsonPath, id, status, sheet
   const row = rows.find((candidate) => String(candidate.id) === String(id));
   if (!row) throw new SyncError(`Job was not found: ${id}`, "JOB_NOT_FOUND");
   if (status !== undefined) row.status = status;
-  if (status !== undefined && status !== "Not applied" && isEmptyValue(row.applied_date)) {
+  if (status !== undefined && !["Not applied", "Interested"].includes(status) && isEmptyValue(row.applied_date)) {
     row.applied_date = appliedDate || new Intl.DateTimeFormat("en-CA").format(new Date());
-  } else if (status === "Not applied") row.applied_date = "";
+  } else if (["Not applied", "Interested"].includes(status)) row.applied_date = "";
   else if (appliedDate !== undefined) row.applied_date = appliedDate;
   if (deadline !== undefined) row.deadline = deadline;
   if (oaDate !== undefined) row.oa_date = oaDate;

@@ -4,13 +4,13 @@ The ranker has two passes:
 
 * a first pass scores every opening against every resume variant with local
   text features and hard eligibility gates;
-* a bounded second pass revisits only the highest scoring openings and gives
-  evidence-backed candidates a small, capped adjustment.
+* a second pass applies conservative caps to every opening when the listing
+  has incomplete requirements or weak supporting evidence.
 
 The module has no model or network dependency.  A profile is a JSON object
 with a ``resumes`` (or ``variants``) array.  The loader also accepts a mapping
 whose keys are resume ids, which makes hand-maintained profiles convenient.
-See ``docs/ranking-algorithm.md`` for the profile shape and score weights.
+See ``docs/ranking-algorithm.md`` for tier thresholds and evidence rules.
 """
 
 from __future__ import annotations
@@ -421,8 +421,7 @@ def rank_jobs(
         )
         record["_rerank_applied"] = True
 
-    # Reranking can change the order within the first-pass top-k window.  Sort
-    # once more so the returned list is the actual final ranking.
+    # Calibration can change ordering. Sort again to return the final ranking.
     ordered = sorted(
         ordered,
         key=lambda item: (
@@ -1593,7 +1592,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--rerank-top-k",
         type=int,
         default=DEFAULT_RERANK_TOP_K,
-        help="number of first-pass candidates to rerank",
+        help="legacy calibration toggle: 0 disables; positive values calibrate every job",
     )
     parser.add_argument("--scored-at", help="ISO timestamp for deterministic runs")
     return parser

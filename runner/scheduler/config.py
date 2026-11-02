@@ -167,7 +167,7 @@ def load_config(path: Optional[str | Path] = None) -> SchedulerConfig:
     workbook_value = raw.get("workbook_path", raw.get("merged_workbook_path"))
     workbook_path = _resolve_path(root_dir, workbook_value, data_dir / "merged.xlsx")
 
-    sibling_dashboard = root_dir.parent / "summer-2027-tracker" / "dist" / "client"
+    sibling_dashboard = root_dir.parent / "dashboard" / "dist" / "client"
     dashboard_default = sibling_dashboard if sibling_dashboard.exists() else root_dir / "dashboard"
     dashboard_value = raw.get("dashboard_dir", str(dashboard_default))
     dashboard_dir = (

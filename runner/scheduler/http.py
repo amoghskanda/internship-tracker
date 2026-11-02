@@ -1,4 +1,4 @@
-"""Read-only local HTTP server for the dashboard."""
+"""Local dashboard server with workbook-backed application updates."""
 
 from __future__ import annotations
 

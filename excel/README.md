@@ -18,4 +18,4 @@ node src/sync.mjs \
   --json-output ../runner/data/merged_jobs.json
 ```
 
-The CLI imports `@oai/artifact-tool`. The T3 Code workspace supplies that package; it is not included or vendored here.
+The CLI imports `@oai/artifact-tool`. The personal workflow supplies that package through a separate spreadsheet runtime. It is not included or vendored here, and installing this directory alone does not provide it. The dashboard example and Python ranker run independently of this dependency.

@@ -43,13 +43,19 @@
     "--json-output",
     "data/merged_jobs.json"
   ],
-  "excel_update_command": [],
+  "excel_update_command": [
+    "node",
+    "../excel/src/sync.mjs",
+    "--update-application"
+  ],
   "command_timeout_seconds": 900,
   "server": {
     "host": "127.0.0.1",
     "port": 8765
   },
-  "pending_statuses": ["Not applied"],
+  "pending_statuses": [
+    "Not applied"
+  ],
   "smtp": {
     "host_env": "SMTP_HOST",
     "port_env": "SMTP_PORT",

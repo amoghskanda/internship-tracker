@@ -21,7 +21,7 @@ dashboard/public/browser-jobs.json
 runner/data/*.xlsx
 
 # Build and editor output
-**/node_modules/
+**/node_modules
 **/.next/
 **/.vinext/
 **/.wrangler/
@@ -34,3 +34,15 @@ runner/data/*.xlsx
 *.tsbuildinfo
 *.inspect.ndjson
 .DS_Store
+
+# Local Python environments and package installation output
+.venv/
+venv/
+**/*.egg-info/
+**/.pytest_cache/
+**/.ruff_cache/
+**/*.pem
+**/*.key
+# Workbooks are generated; only the blank schema fixture is versioned.
+**/*.xlsx
+!dashboard/public/Summer-2027-Internships.xlsx

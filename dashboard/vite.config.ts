@@ -14,7 +14,8 @@ const localBindingConfig = {
     ? [
         {
           binding: 'DB',
-          database_name: process.env.CLOUDFLARE_D1_DATABASE_NAME || 'internship-tracker',
+          database_name:
+            process.env.CLOUDFLARE_D1_DATABASE_NAME || 'internship-tracker',
           database_id: databaseId,
         },
       ]
