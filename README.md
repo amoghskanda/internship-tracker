@@ -120,7 +120,7 @@ See [setup instructions](docs/setup.md) for the local service and [the Excel CLI
 ```sh
 (cd collector && python3 -m unittest discover -s tests -v)
 (cd runner && python3 -m unittest discover -s tests -v)
-(cd dashboard && npm ci && npm run lint && npm run typecheck && npm test && npm run build)
+(cd dashboard && npm ci && npm run audit && npm run format:check && npm run lint && npm run typecheck && npm test && npm run build)
 ```
 
-The GitHub Actions workflow runs these checks without personal credentials. The Excel integration suite requires the separate spreadsheet runtime and runs with `cd excel && npm test` when that dependency is available.
+The GitHub Actions workflow runs these checks without personal credentials. The dependency audit fails on high or critical advisories, including development tooling. The Excel integration suite requires the separate spreadsheet runtime and runs with `cd excel && npm test` when that dependency is available.
